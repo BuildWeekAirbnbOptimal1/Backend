@@ -1,0 +1,38 @@
+{
+  "name": "airbnboptimal1",
+  "version": "1.0.0",
+  "description": "BuildWeekAirbnbOptimal1/Backend",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "cross-env DB_ENV=testing jest --watch",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildWeekAirbnbOptimal1/Backend.git"
+  },
+  "author": "Toni Darden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuildWeekAirbnbOptimal1/Backend/issues"
+  },
+  "homepage": "https://github.com/BuildWeekAirbnbOptimal1/Backend#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "jest": "^25.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.10",
+    "pg": "^7.18.2"
+  }
+}

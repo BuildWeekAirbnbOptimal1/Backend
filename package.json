@@ -34,5 +34,8 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.10",
     "pg": "^7.18.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

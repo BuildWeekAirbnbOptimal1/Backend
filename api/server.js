@@ -14,6 +14,13 @@ server.use(express.json());
 server.use('/user', userRouter);
 
 
+server.get('/user', (req, res) => {
+    res.send(`
+      <h2>welcome to project TEST</h>
+
+    `);
+});
+
 
 
 

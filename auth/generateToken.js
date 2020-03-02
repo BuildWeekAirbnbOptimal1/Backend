@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secrets = process.env.JWT_SECRET;
+const secrets = require('../middleware/secrets')
 
 module.exports = generateToken;
 
@@ -13,6 +13,8 @@ function generateToken(user) {
     expiresIn: '1h'
   };
 
-  const token = jwt.sign(payload, secrets, options);
+  console.log("MY SECRET: ", secrets.jwtSecret);
+
+  const token = jwt.sign(payload, secrets.jwtSecret, options);
   return token;
 }

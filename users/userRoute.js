@@ -75,8 +75,8 @@ router.post('/login', (req, res) => {
 
 //  DELETE
 
-router.delete('/:id', genToken, vRoute, async (req, res) => {
-  const { userID: id } = req.params;
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
   try {
     await User.deleteUser(id);
 

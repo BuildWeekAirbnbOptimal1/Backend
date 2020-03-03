@@ -9,9 +9,9 @@ module.exports = verifiedAccess = async (req, res, next) => {
       const { username, email } = req.body;
       try {
         //  check the database for the username
-        const user = await User.findUserBy({ username });
+        const user = await User.findBy({ username });
         //   check the database for the email
-        const mail = await User.findUserBy({ email });
+        const mail = await User.findBy({ email });
   
         // if either the username or email return a positive, reject it
         if (user || mail) {

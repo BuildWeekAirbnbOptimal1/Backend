@@ -10,10 +10,10 @@
 //     }
 // }
 
-module.exports = verifyRoutes = (req, res, next) => {
-    const { userID } = req.params;
-
-    if (userID != req.user.id) {
+module.exports = verifiedRoutes = (req, res, next) => {
+    const {id} = req.params;
+console.log(id)
+    if (id != req.user.id) {
       res.status(401).json({ message: 'Unauthorized Access!' });
     } else {
       next();

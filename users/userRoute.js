@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const genToken = require("../auth/generateToken");
 const vRoute = require("../middleware/verifiedRoutes");
 const vAccess = require("../middleware/verifiedAccess");
-// const vToken = require('../middleware/verifiedToken');
+const vToken = require('../middleware/verifiedToken');
 
 const User = require("../users/model");
 
@@ -56,7 +56,7 @@ router.post("/login", (req, res) => {
 
 // GET/:id
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",vToken, async (req, res) => {
   User.findById(req.params.id)
     .then(user => {
       if (user) {
@@ -95,7 +95,7 @@ router.delete("/:id",vAccess, async (req, res) => {
 
 // PUT
 
-router.put("/:id",vAccess,vRoute, async (req, res) => {
+router.put("/:id",vAccess, async (req, res) => {
   const id = req.params.id;
   const { body } = req;
   const { password } = body;

@@ -72,6 +72,24 @@ router.post('/login', (req, res) => {
   })
 });
 
+
+//  DELETE
+
+router.delete('/:id', genToken, vRoute, async (req, res) => {
+  const { userID: id } = req.params;
+  try {
+    await User.deleteUser(id);
+
+    res.status(200).json({
+      message: 'Your account has been deleted successfully '
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Internal server Error' });
+  }
+});
+
+
 // -------
 
 // router.get("/all",vToken, vRoute('Admin'), (req, res) => {

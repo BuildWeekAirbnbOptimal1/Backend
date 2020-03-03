@@ -35,7 +35,7 @@ router.post("/register", async (req, res) => {
 
 // LOGIN
 
-router.post("/login", (req, res) => {
+router.post("/login",vToken, (req, res) => {
   let { username, password } = req.body;
 
   User.findBy({ username })
@@ -44,7 +44,7 @@ router.post("/login", (req, res) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = genToken(user);
 
-        res.status(200).json({ username: user.username, token: token });
+        res.status(200).json({ userId: user.id, username: user.username, token: token});
       } else {
         res.status(401).json({ message: "invalid credits" });
       }
@@ -52,6 +52,8 @@ router.post("/login", (req, res) => {
     .catch(error => {
       res.status(500).json(error);
     });
+
+    
 });
 
 // GET/:id

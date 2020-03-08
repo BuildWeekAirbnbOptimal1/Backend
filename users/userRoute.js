@@ -12,8 +12,9 @@ const User = require("../users/model");
 // POST
 
 router.post("/register", async (req, res) => {
-  console.log("firstname", req.body.firstname);
+  // console.log("firstname", req.body.firstname);
   let body = req.body;
+  // console.log('body', body.firstname)
 
   let { firstname, lastname, email, username, password } = body;
   if (!firstname || !lastname || !email || !username || !password) {
